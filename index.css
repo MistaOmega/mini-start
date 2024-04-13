@@ -1,0 +1,197 @@
+@font-face {
+    font-family: "FiraCode Nerd Font";
+    font-display: swap;
+    src:
+        local("FiraCode Nerd Font"),
+        url(fonts/FiraCode/FiraCodeNerdFontMono-Regular.ttf) format("truetype");
+}
+
+:root {
+    --rosewater: rgb(245, 224, 220);
+    --flamingo: rgb(242, 205, 205);
+    --pink: rgb(245, 194, 231);
+    --mauve: rgb(203, 166, 247);
+    --red: rgb(243, 139, 168);
+    --maroon: rgb(235, 160, 172);
+    --peach: rgb(250, 179, 135);
+    --yellow: rgb(249, 226, 175);
+    --green: rgb(166, 227, 161);
+    --teal: rgb(148, 226, 213);
+    --sky: rgb(137, 220, 235);
+    --sapphire: rgb(116, 199, 236);
+    --blue: rgb(137, 180, 250);
+    --lavender: rgb(180, 190, 254);
+    --text: rgb(205, 214, 244);
+    --subtext1: rgb(186, 194, 222);
+    --subtext0: rgb(166, 173, 200);
+    --overlay2: rgb(147, 153, 178);
+    --overlay1: rgb(127, 132, 156);
+    --overlay0: rgb(108, 112, 134);
+    --surface2: rgb(88, 91, 112);
+    --surface1: rgb(69, 71, 90);
+    --surface0: rgb(49, 50, 68);
+    --base: rgb(30, 30, 46);
+    --mantle: rgb(24, 24, 37);
+    --crust: rgb(17, 17, 27);
+    color-scheme: dark;
+}
+
+html{
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--base);
+    overflow-x: clip;
+}
+
+.main{
+    display: flex;
+    color: var(--text);
+    background-color: var(--mantle);
+    font-family: 'FiraCode Nerd Font', monospace;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+/* BACKGROUND AND TITLE STYLING */
+#imageContainer{
+    margin-right: 2em;
+    transition: transform 0.5s;
+}
+
+#imageContainer:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s;
+}
+
+#image{
+    height: 600px;
+    aspect-ratio: 9/16;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#welcomeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#welcome{
+    color: var(--peach);
+    font-size: 2.5em;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#welcome > a{
+    color: var(--peach);
+    text-decoration: none;
+}
+
+#catppuccin{
+    height: 50px;
+    padding-left: 1em;
+    margin-right: 1em;
+}
+
+#dateTime {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--peach);
+    display: grid;
+    text-align: center;
+    margin: 1em 0;
+}
+#dateTime:hover{
+    cursor: pointer;
+    color: var(--red);
+}
+
+/* LINK STYLING */
+
+.categoryHeader {
+    color: var(--peach);
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+#links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 1em;
+    margin-left: 0;
+}
+
+li > a {
+    color: var(--text);
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+li > a:hover {
+    color: var(--red);
+    font-weight: 600;
+}
+
+.main .category:nth-child(even) {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+/* PER-LETTER COLOURING */
+
+#welcome:hover .letter1 {
+    color: var(--mauve);
+}
+
+#welcome:hover .letter2 {
+    color: var(--red);
+}
+
+#welcome:hover .letter3 {
+    color: var(--maroon);
+}
+
+#welcome:hover .letter4 {
+    color: var(--peach);
+}
+
+#welcome:hover .letter5 {
+    color: var(--yellow);
+}
+
+#welcome:hover .letter6 {
+    color: var(--green);
+}
+
+#welcome:hover .letter7 {
+    color: var(--teal);
+}
+
+/* ANIMATIONS */
+#info,
+#image {
+    opacity: 0; /* we handle this in JS so that the image is fully loaded into the DOM before revealing */
+    transition: opacity 0.25s ease-in;
+}
+
+#info.fade-in,
+#image.fade-in {
+    opacity: 1;
+}
+
+
+#info.loaded * {
+    transition: color 0.2s ease-in-out;
+}
+
